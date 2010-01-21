@@ -146,119 +146,80 @@ public class GoldPrices extends Activity {
         Integer o = 0;
 
         //Get market status
-//        TextView market_status = (TextView)findViewById(R.id.market_status);
         if(data.contains("SPOT MARKET IS OPEN")) {
         	tabledata[0]="SPOT MARKET IS OPEN";
-//        	market_status.setText("SPOT MARKET IS OPEN");
-//        	market_status.setTextColor(0xff00af00);
         	b = 4;}
         else {
         	tabledata[0]="SPOT MARKET IS OPEN";
-//        	market_status.setText("SPOT MARKET IS CLOSED");
-//        	market_status.setTextColor(0xffff0000);
         	b = 3;}
 
         //Get market time
-//        TextView market_time = (TextView)findViewById(R.id.market_time);
         i = data.indexOf("SPOT MARKET");
         for(int n=0; n<b; n++){i = data.indexOf(">",i+1);}
         o = data.indexOf("</font>",i);
         tabledata[1]=data.substring(i+1,o);
-//        market_time.setText(data.substring(i+1,o));
 
         //Get time
-//        TextView time = (TextView)findViewById(R.id.time);
         i = data.indexOf("<!--date -->");
         o = data.indexOf("</font>",i);
         tabledata[2]=data.substring(i+12,o);
-//        time.setText(data.substring(i+12,o));
         
         //Get bid
-//        TextView bid = (TextView)findViewById(R.id.bid);
         i = data.indexOf("<td align=\"center\" bgcolor=\"#f3f3e4\">",o);
         o = data.indexOf("</td>",i);
         tabledata[3]=data.substring(i+37,o);
-//        bid.setText(data.substring(i+37,o));
         
         //Get ask
-//        TextView ask = (TextView)findViewById(R.id.ask);
         i = data.indexOf("<td align=\"center\" bgcolor=\"#f3f3e4\">",o);
         o = data.indexOf("</td>",i);
         tabledata[4]=data.substring(i+37,o);
-//        ask.setText(data.substring(i+37,o));
         
         //Get low
-//        TextView low = (TextView)findViewById(R.id.low);
         i = data.indexOf("<td align=\"center\">",o);
         o = data.indexOf("</td>",i);
         tabledata[5]=data.substring(i+19,o);
-//        low.setText(data.substring(i+19,o));
         
         //Get high
-//        TextView high = (TextView)findViewById(R.id.high);
         i = data.indexOf("<td align=\"center\">",o);
         o = data.indexOf("</td>",i);
         tabledata[6]=data.substring(i+19,o);
-//        high.setText(data.substring(i+19,o));
         
         //Get change
-//        TextView change = (TextView)findViewById(R.id.change);
         i = data.indexOf("<td align=\"center\" bgcolor=\"#f3f3e4\">",o);
         o = data.indexOf("</font>",i);
         tabledata[7]=data.substring(i+57,o);
-//        change.setText(data.substring(i+57,o));
         
         //Get change_percent
-//        TextView change_percent = (TextView)findViewById(R.id.change_percent);
         i = data.indexOf("<td align=\"center\" bgcolor=\"#f3f3e4\">",o);
         o = data.indexOf("</font>",i);
         tabledata[8]=data.substring(i+57,o);
-//        change_percent.setText(data.substring(i+57,o));
         
         //Get 30daychg
-//        TextView monthchange = (TextView)findViewById(R.id.monthchange);
         i = data.indexOf("<td align=\"center\">",o);
         o = data.indexOf("</font>",i);
         tabledata[9]=data.substring(i+39,o);
- //       monthchange.setText(data.substring(i+39,o));
         
         //Get 30daychg_percent
-//        TextView monthchange_percent = (TextView)findViewById(R.id.monthchange_percent);
         i = data.indexOf("<td align=\"center\">",o);
         o = data.indexOf("</font>",i);
         tabledata[10]=data.substring(i+39,o);
-//        monthchange_percent.setText(data.substring(i+39,o));
         
         //Get 1yearchg
-//        TextView yearchange = (TextView)findViewById(R.id.yearchange);
         i = data.indexOf("<td align=\"center\" bgcolor=\"#f3f3e4\">",o);
         o = data.indexOf("</font>",i);
         tabledata[11]=data.substring(i+57,o);
-//        yearchange.setText(data.substring(i+57,o));
         
       	//Get 1yearchg_percent
-//        TextView yearchange_percent = (TextView)findViewById(R.id.yearchange_percent);
         i = data.indexOf("<td align=\"center\" bgcolor=\"#f3f3e4\">",o);
         o = data.indexOf("</font>",i);
         tabledata[12]=data.substring(i+57,o);
-//        yearchange_percent.setText(data.substring(i+57,o));
         
         return tabledata;
     }
     
     private Bitmap[] updateCharts() {
     	Bitmap[] charts = new Bitmap[8];
-    	
-        //Get image widgets for each chart
-//        ImageView chart_3day = (ImageView)findViewById(R.id.chart_3day);
-//        ImageView chart_nyspot = (ImageView)findViewById(R.id.chart_nyspot);
-//        ImageView chart_30day = (ImageView)findViewById(R.id.chart_30day);
-//        ImageView chart_60day = (ImageView)findViewById(R.id.chart_60day);
-//        ImageView chart_6month = (ImageView)findViewById(R.id.chart_6month);
-//        ImageView chart_1year = (ImageView)findViewById(R.id.chart_1year);
-//        ImageView chart_5year = (ImageView)findViewById(R.id.chart_5year);
-//        ImageView chart_10year = (ImageView)findViewById(R.id.chart_10year);
-        
+    	        
         //Set chart urls
         String url_chart_3day = "http://www.kitco.com/images/live/gold.gif";
         String url_chart_nyspot = "http://www.kitco.com/images/live/nygold.gif";
@@ -270,14 +231,6 @@ public class GoldPrices extends Activity {
         String url_chart_10year = "http://www.kitco.com/LFgif/au3650nyb.gif";
         
         //Download chart images
-//        chart_3day.setImageBitmap(downloadImage(url_chart_3day));
-//        chart_nyspot.setImageBitmap(downloadImage(url_chart_nyspot));
-//        chart_30day.setImageBitmap(downloadImage(url_chart_30day));
-//        chart_60day.setImageBitmap(downloadImage(url_chart_60day));
-//        chart_6month.setImageBitmap(downloadImage(url_chart_6month));
-//        chart_1year.setImageBitmap(downloadImage(url_chart_1year));
-//        chart_5year.setImageBitmap(downloadImage(url_chart_5year));
-//        chart_10year.setImageBitmap(downloadImage(url_chart_10year));
         charts[0] = downloadImage(url_chart_3day);
         charts[1] = downloadImage(url_chart_nyspot);
         charts[2] = downloadImage(url_chart_30day);
