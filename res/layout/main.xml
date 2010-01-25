@@ -4,32 +4,49 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#FFFFFF">
+    <RelativeLayout
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content">
     	<TextView
 			android:id="@+id/title"
-			android:layout_width="fill_parent"
+			android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
+    		android:layout_alignParentLeft="true"
     		android:text="Kitco.com Gold Prices"
     		android:textColor="#000000"
-    		android:gravity="center"
     		android:autoLink="web"
-    		android:textSize="20sp"/>
-<ScrollView
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    		android:textSize="20sp"
+    		android:textStyle="bold"
+    		android:gravity="center"/>
+    	<Button
+    		android:id="@+id/refresh"
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_alignParentRight="true"
+    		android:text="Refresh"
+    		android:gravity="center"/>
+    </RelativeLayout>
+    <RelativeLayout>
     <LinearLayout
     	android:orientation="vertical"
     	android:layout_width="fill_parent"
     	android:layout_height="fill_parent"
-    	android:gravity="center">
+    	android:gravity="center"
+    	android:background="#DDDDDD">
     	<ProgressBar
     		android:id="@+id/progressbar"
     		android:layout_width="wrap_content"
-    		android:layout_height="wrap_content"/>
+    		android:layout_height="wrap_content"
+    		android:padding="4sp"/>
     </LinearLayout>
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
     <TextView
     	android:id="@+id/market_status"
     	android:layout_width="fill_parent"
@@ -190,4 +207,5 @@
     	android:paddingBottom="10sp"/>
 </LinearLayout>
 </ScrollView>
+</RelativeLayout>
 </LinearLayout>
