@@ -1,7 +1,7 @@
 package com.kitco.goldprices;
 
 /* KITCO GOLD PRICES ANDROID APPLICATION
- * version 0.1
+ * version 0.2
  * 
  * This is a simple application for Android devices
  * that downloads gold price data and charts from

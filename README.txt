@@ -7,6 +7,9 @@ them on your Android device. This software is released under GPLv2.
 
 CHANGELOG:
 ----------
+Version 0.2 (January 2010)
+-Cleaned up code, should handle broken connections more gracefully
+
 Version 0.1 (January 2010)
 -Initial release
 
