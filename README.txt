@@ -7,6 +7,10 @@ them on your Android device. This software is released under GPLv2.
 
 CHANGELOG:
 ----------
+Version 0.3 (February 2010)
+-Fixed so data would load as it was downloaded, don't have to wait for entire
+download to finish before showing table and charts.
+
 Version 0.2 (January 2010)
 -Cleaned up code, should handle broken connections more gracefully
 

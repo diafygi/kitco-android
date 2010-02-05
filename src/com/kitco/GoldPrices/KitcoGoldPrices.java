@@ -1,7 +1,7 @@
 package com.kitco.goldprices;
 
 /* KITCO GOLD PRICES ANDROID APPLICATION
- * version 0.2
+ * version 0.3
  * 
  * This is a simple application for Android devices
  * that downloads gold price data and charts from
@@ -10,7 +10,7 @@ package com.kitco.goldprices;
  * 
  * The source code for this application is released
  * under the Gnu Public Licence version 2 (GPLv2).
- * Copyright 2010. Daniel Roesler (diafygi) diafygi
+ * Copyright 2010. Daniel Roesler diafygi
  * @gmail.com
  * 
  * It is not an official app by Kitco Metals, Inc.
@@ -31,7 +31,7 @@ package com.kitco.goldprices;
  */
 
 /* TODO
- * Image zoom on double tap
+ * Image zoom on double tap, will probably require 1.5
  */
 
 import android.app.Activity;
@@ -63,7 +63,7 @@ public class KitcoGoldPrices extends Activity {
 	private Bitmap[] charts = new Bitmap[8];
 	private Integer loaded = 0;
 	private Integer lockout = 0;
-	static final boolean DEBUG = true;
+	static final boolean DEBUG = false;
 	
     //Called when the activity is first created 
     @Override
@@ -77,27 +77,10 @@ public class KitcoGoldPrices extends Activity {
         
         //Define refresh button action
         Button refresh_button = (Button)findViewById(R.id.refresh);
-        refresh_button.setOnClickListener(new OnClickListener() {
-        	public void onClick(View v) {
-        		//Make progressbar visible
-        		if(DEBUG) Log.v("kitco","refresh button clicked, making progress bar visible");
-        		ProgressBar pg = (ProgressBar)findViewById(R.id.progressbar);
-        		pg.setVisibility(0);
-        		
-        		//Force reload data
-        		if(DEBUG) Log.v("kitco","force reloading data");
-        		loaded = 0;
-        		for(int n = 0; n < 13; n++) {
-        			table_data[n] = null;
-        			if(n < 8) charts[n] = null;
-        		}
-        		updateData();
-        	}
-        });
+        refresh_button.setOnClickListener(refresh_onclick);
     }
     
-    //Called when configuration is changed
-    //Don't kill activity when screen is rotated
+    //Doesn't kill activity when screen is rotated
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 	  super.onConfigurationChanged(newConfig);
@@ -109,26 +92,28 @@ public class KitcoGoldPrices extends Activity {
 	  
 	  //Define refresh button action
       Button refresh_button = (Button)findViewById(R.id.refresh);
-      refresh_button.setOnClickListener(new OnClickListener(){
-      	public void onClick(View v) {
-    		//Make progressbar visible
-    		if(DEBUG) Log.v("kitco","refresh button clicked, making progress bar visible");
-    		ProgressBar pg = (ProgressBar)findViewById(R.id.progressbar);
-    		pg.setVisibility(0);
-    		
-    		//Force reload data
-    		if(DEBUG) Log.v("kitco","force reloading data");
-    		loaded = 0;
-    		for(int n = 0; n < 13; n++) {
-    			table_data[n] = null;
-    			if(n < 8) charts[n] = null;
-    		}
-    		updateData();
-    	}
-    });
+      refresh_button.setOnClickListener(refresh_onclick);
 	}
 	
-	//Handler that listens for when updates are complete
+	//Set refresh button click listener
+	OnClickListener refresh_onclick = new OnClickListener() {
+		public void onClick(View v) {
+	    	//Make progressbar visible
+	    	if(DEBUG) Log.v("kitco","refresh button clicked, making progress bar visible");
+	    	loaded = 0;
+	    	ProgressBar pg = (ProgressBar)findViewById(R.id.progressbar);
+	    	pg.setVisibility(0);
+	    	pg.setProgress(loaded);
+	    	
+	    	//Force reload data
+	    	if(DEBUG) Log.v("kitco","force reloading data");
+	    	for(int n = 0; n < 13; n++) {
+	    			table_data[n] = null;
+	    			if(n < 8) charts[n] = null;
+	    		}
+	    		updateData();
+	    }
+	};
 	
 	//Receives messages from other threads
 	private Handler handler = new Handler() {
@@ -142,6 +127,7 @@ public class KitcoGoldPrices extends Activity {
 			if(loaded<100) {
 				if(DEBUG) Log.v("kitco","data "+loaded.toString()+"% checked");
 				pg.setProgress(loaded);
+				updateViews();
 			}
 			else {
 				//100% loaded, make progressbar invisible
@@ -152,8 +138,6 @@ public class KitcoGoldPrices extends Activity {
 			}
 		}
 	};
-	
-	//Thread that calls updates
 	
 	//Updates data from web in separate thread
 	private void updateData() {
@@ -191,8 +175,6 @@ public class KitcoGoldPrices extends Activity {
 		t.start();
 	}
 
-	//Updates table and charts in window
-    
 	//Updates view widgets on screen with data
 	private void updateViews() {
     	//Set widget locations for data
@@ -207,16 +189,17 @@ public class KitcoGoldPrices extends Activity {
     			R.id.chart_6month, R.id.chart_1year, R.id.chart_5year, R.id.chart_10year};
 
     	//Check to see if any data was retrieved
-    	Integer isdata = 0;
+    	Integer isdata_table = 0;
+    	Integer isdata_charts = 0;
     	for(int n = 0; n < 13; n++)
     		if(table_data[n] != null)
-    			isdata = 1;
+    			isdata_table = 1;
     	for(int n = 0; n < 8; n++)
     		if(charts[n] != null)
-    			isdata = 1;
+    			isdata_charts = 1;
     	
     	//Display error if no data was retrieved
-    	if(isdata == 0) {
+    	if(isdata_table == 0 && isdata_charts == 0 && loaded == 100) {
     		TextView connection_info = (TextView)findViewById(table_view_ids[0]);
     		connection_info.setText("Unable to retreive any data. Connection might be broken. Try clicking on the Kitco.com link above.");
     		if(DEBUG) Log.e("kitco","no data retrieved");
@@ -224,53 +207,51 @@ public class KitcoGoldPrices extends Activity {
     	} else if(DEBUG) Log.v("kitco","at least some data was retrieved, continuing to update display");
     	
     	//Set table labels
-    	if(DEBUG) Log.v("kitco","setting table labels");
-    	TextView tv;
-    	for(int n = 0; n < 5; n++) {
-    		tv = (TextView)findViewById(table_view_label_ids[n]);
-    		tv.setText(table_view_label_titles[n]);
-    	}
+    	if(isdata_table == 1) {
+    		if(DEBUG) Log.v("kitco","setting table labels");
+    		TextView tv;
+    		for(int n = 0; n < 5; n++) {
+    			tv = (TextView)findViewById(table_view_label_ids[n]);
+    			tv.setText(table_view_label_titles[n]);
+    		}
 
-        //Get table data boxes
-        if(DEBUG) Log.v("kitco","setting table info");
-        for(int n = 0; n < 13; n++) {
-        	tv = (TextView)findViewById(table_view_ids[n]);
-        	if(table_data[n] != null)
-        		tv.setText(table_data[n]);
-        	else
-        		tv.setText("N/A");
-        }
+    		//Get table data boxes
+    		if(DEBUG) Log.v("kitco","setting table info");
+    		for(int n = 0; n < 13; n++) {
+    			tv = (TextView)findViewById(table_view_ids[n]);
+    			if(table_data[n] != null)
+    				tv.setText(table_data[n]);
+    			else
+    				tv.setText("N/A");
+    		}
         
-        //Set market_status color
-        tv = (TextView)findViewById(table_view_ids[0]);
-        if(table_data[0]=="SPOT MARKET IS OPEN")
-        	tv.setTextColor(0xff00af00);
-        else
-        	tv.setTextColor(0xffff0000);
-        
+    		//Set market_status color
+    		tv = (TextView)findViewById(table_view_ids[0]);
+    		if(table_data[0]=="SPOT MARKET IS OPEN")
+    			tv.setTextColor(0xff00af00);
+    		else
+    			tv.setTextColor(0xffff0000);
+    	}
+    	
         //Get chart boxes
-        if(DEBUG) Log.v("kitco","setting charts");
-        ImageView iv;
-        for(int n = 0; n < 8; n++) {
-        	iv = (ImageView)findViewById(chart_view_ids[n]);
-        	if(charts[n] != null)
-        		iv.setImageBitmap(charts[n]);
-        	else
-        		iv.setImageDrawable(getResources().getDrawable(R.drawable.kitco_icon));
-        }
+    	if(isdata_charts == 1) {
+    		if(DEBUG) Log.v("kitco","setting charts");
+    		ImageView iv;
+    		for(int n = 0; n < 8; n++) {
+    			iv = (ImageView)findViewById(chart_view_ids[n]);
+    			if(charts[n] != null)
+    				iv.setImageBitmap(charts[n]);
+    		}
+    	}
     }
-    
-    //retrieves table data from internet
     
 	//Grabs table data from web
 	private void updateTable() {
-    	loaded = 10;
-    	handler.sendMessage(Message.obtain());
-    	
         //Get webpage data for prices
     	if(DEBUG) Log.v("kitco","grabbing webpage from kitco.com");
     	String webpage = downloadHTML("http://www.kitco.com/");
     	
+    	//Error if unable to download webpage
     	if(webpage.length() == 0) {
     		if(DEBUG) Log.e("kitco","unable to download kitco.com homepage");
     		return;
@@ -370,8 +351,6 @@ public class KitcoGoldPrices extends Activity {
         return;
     }
     
-    //retrieves chart images from internet
-    
 	//Grabs chart data from web
 	private void updateCharts() {
     	String[] chart_urls = new String[8];
@@ -399,8 +378,6 @@ public class KitcoGoldPrices extends Activity {
         return;
     }
     
-  //Downloads an html page from a specified url
-    
 	//Downloads html from specified url
 	private String downloadHTML(String url) {
     	
@@ -423,8 +400,6 @@ public class KitcoGoldPrices extends Activity {
     	
 		return sb.toString();
     }
-    
-    //Downloads an image from a specified url
     
 	//Downloads image from specified url
 	private Bitmap downloadImage(String url) {
