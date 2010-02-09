@@ -1,7 +1,7 @@
 package com.kitco.goldprices;
 
 /* KITCO GOLD PRICES ANDROID APPLICATION
- * version 0.3
+ * version 0.4
  * 
  * This is a simple application for Android devices
  * that downloads gold price data and charts from
@@ -39,6 +39,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.util.Linkify;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -52,6 +53,7 @@ import android.graphics.BitmapFactory;
 import java.net.URL;
 import java.net.MalformedURLException;
 import java.net.HttpURLConnection;
+import java.util.regex.Pattern;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -78,6 +80,10 @@ public class KitcoGoldPrices extends Activity {
         //Define refresh button action
         Button refresh_button = (Button)findViewById(R.id.refresh);
         refresh_button.setOnClickListener(refresh_onclick);
+        
+        //Add Kitco.com link to title
+        TextView title_text = (TextView)findViewById(R.id.title);
+        Linkify.addLinks(title_text, Pattern.compile("Kitco.com"), "http://www.");
     }
     
     //Doesn't kill activity when screen is rotated
@@ -93,6 +99,10 @@ public class KitcoGoldPrices extends Activity {
 	  //Define refresh button action
       Button refresh_button = (Button)findViewById(R.id.refresh);
       refresh_button.setOnClickListener(refresh_onclick);
+      
+      //Add Kitco.com link to title
+      TextView title_text = (TextView)findViewById(R.id.title);
+      Linkify.addLinks(title_text, Pattern.compile("Kitco.com"), "http://www.");
 	}
 	
 	//Set refresh button click listener

@@ -7,6 +7,9 @@ them on your Android device. This software is released under GPLv2.
 
 CHANGELOG:
 ----------
+Version 0.4 (February 2010)
+-Fixed Kitco.com link at top of window. 
+
 Version 0.3 (February 2010)
 -Fixed so data would load as it was downloaded, don't have to wait for entire
 download to finish before showing table and charts.

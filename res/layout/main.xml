@@ -14,7 +14,6 @@
     		android:layout_alignParentLeft="true"
     		android:text="Kitco.com Gold Prices"
     		android:textColor="#000000"
-    		android:autoLink="web"
     		android:textSize="20sp"
     		android:textStyle="bold"
     		android:gravity="center"/>
