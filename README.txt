@@ -7,6 +7,9 @@ them on your Android device. This software is released under GPLv2.
 
 CHANGELOG:
 ----------
+Version 0.4.1 (April 2010)
+-Kitco.com website changed format, so I needed to update the parsing function.
+
 Version 0.4 (February 2010)
 -Fixed Kitco.com link at top of window. 
 

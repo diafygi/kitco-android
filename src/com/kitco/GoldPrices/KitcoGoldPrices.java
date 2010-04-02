@@ -1,7 +1,7 @@
 package com.kitco.goldprices;
 
 /* KITCO GOLD PRICES ANDROID APPLICATION
- * version 0.4
+ * version 0.4.1
  * 
  * This is a simple application for Android devices
  * that downloads gold price data and charts from
@@ -278,17 +278,17 @@ public class KitcoGoldPrices extends Activity {
 
         //Get market status
         if(DEBUG) Log.v("kitco","getting market status");
-        if(data.contains("SPOT MARKET IS OPEN"))
+        if(data.contains("OPEN"))
         	table_data[0]="SPOT MARKET IS OPEN";
         else
         	table_data[0]="SPOT MARKET IS CLOSED";
 
         //Get market time
         if(DEBUG) Log.v("kitco","getting market time");
-        i = data.indexOf("SPOT MARKET IS", start);
-        i = data.indexOf("<font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"1\">", i);
+        i = data.indexOf("Spot Market", start);
+        i = data.indexOf("<font size=\"1\" face=\"Verdana, Arial, Helvetica, sans-serif\">", i);
         o = data.indexOf("</font>",i);
-        table_data[1]=data.substring(i+60,o);
+        table_data[1]=data.substring(i+61,o);
 
         //Get time
         if(DEBUG) Log.v("kitco","getting current time");
