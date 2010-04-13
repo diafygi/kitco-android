@@ -1,7 +1,7 @@
 package com.kitco.goldprices;
 
 /* KITCO GOLD PRICES ANDROID APPLICATION
- * version 0.4.1
+ * version 0.4.2
  * 
  * This is a simple application for Android devices
  * that downloads gold price data and charts from
@@ -191,7 +191,7 @@ public class KitcoGoldPrices extends Activity {
     	int[] table_view_label_ids = { R.id.bidask_label, R.id.lowhigh_label,
     			R.id.change_label, R.id.monthchange_label, R.id.yearchange_label};
     	String[] table_view_label_titles = { "Bid/Ask", "Low/High",
-    			"Change", "30daychg", "30daychg", "1yearchg"};
+    			"Change", "30daychg", "1yearchg"};
     	int[] table_view_ids = { R.id.market_status, R.id.market_time, R.id.time,
     			R.id.bid, R.id.ask, R.id.low, R.id.high, R.id.change, R.id.change_percent,
     			R.id.monthchange, R.id.monthchange_percent, R.id.yearchange, R.id.yearchange_percent};

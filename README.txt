@@ -7,6 +7,9 @@ them on your Android device. This software is released under GPLv2.
 
 CHANGELOG:
 ----------
+Version 0.4.2 (April 2010)
+-30daychg label was appearing twice, fixed. (Thanks Chase for reporting this!)
+
 Version 0.4.1 (April 2010)
 -Kitco.com website changed format, so I needed to update the parsing function.
 
