@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="180"
+   height="120"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="kitco-android-banner.svg"
+   inkscape:export-filename="C:\Documents and Settings\droesler\Desktop\kitco-android-banner.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3702">
+      <stop
+         style="stop-color:#e5b53a;stop-opacity:1;"
+         offset="0"
+         id="stop3704" />
+      <stop
+         id="stop3607"
+         offset="0.36131176"
+         style="stop-color:#f2da9c;stop-opacity:1;" />
+      <stop
+         id="stop3605"
+         offset="0.50288892"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         style="stop-color:#cacaca;stop-opacity:1;"
+         offset="0.65158993"
+         id="stop3609" />
+      <stop
+         style="stop-color:#969696;stop-opacity:1;"
+         offset="1"
+         id="stop3706" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3686">
+      <stop
+         style="stop-color:#807f83;stop-opacity:1;"
+         offset="0"
+         id="stop3688" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="1"
+         id="stop3690" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <inkscape:perspective
+       id="perspective2884"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3686"
+       id="linearGradient3692"
+       x1="41.548618"
+       y1="1025.3284"
+       x2="70.054703"
+       y2="1003.9462"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0935102,0,0,1.0935102,-1.2425317,-134.39749)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3702"
+       id="linearGradient3708"
+       x1="20.1744"
+       y1="22.119843"
+       x2="30.948551"
+       y2="16.429068"
+       gradientUnits="userSpaceOnUse" />
+    <inkscape:perspective
+       id="perspective2841"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="143.03066"
+     inkscape:cy="26.805301"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1181"
+     inkscape:window-x="1436"
+     inkscape:window-y="-4"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-932.36218)">
+    <g
+       id="g3681"
+       transform="matrix(2.0176264,0,0,2.0176264,-23.23922,-1056.3138)">
+      <path
+         transform="translate(0,980.36218)"
+         sodipodi:nodetypes="cccccccc"
+         id="path2896"
+         d="m 15.508601,11.183622 -1.501662,3.204738 0,16.469421 c 4.915117,0.08544 7.905256,2.860449 9.337449,8.17028 l 8.301454,0.0032 6.729158,-10.46875 0,-16.286628 -0.884863,-1.376687"
+         style="fill:url(#linearGradient3708);fill-opacity:1;stroke:#ffffff;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path2894"
+         d="m 31.378265,1019.3826 0,-15.6735 m -7.965357,0 0,15.6735"
+         style="fill:#e5b53a;fill-opacity:1;stroke:#ffffff;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         sodipodi:nodetypes="ccccccc"
+         id="path2890"
+         d="m 15.510204,10.938776 22.204082,0 0.658137,1.139926 -6.862219,11.268237 -8.163265,0 c -0.457452,-3.918257 -2.61782,-7.22833 -9.142857,-8.979592 l 1.306122,-3.428571 z"
+         style="fill:none;stroke:#ffffff;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         transform="translate(0,980.36218)" />
+    </g>
+    <path
+       style="fill:url(#linearGradient3692);fill-opacity:1;stroke:#ffffff;stroke-width:1.09351027;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 31.608957,963.9747 0,45.6697 9.531021,0 0,-20.41246 20.332843,20.41246 13.343428,0 -24.860078,-24.7806 20.650545,-20.65072 -10.960674,0 -18.506064,18.42674 0,-18.66512 -9.531021,0 z"
+       id="path3675" />
+    <text
+       xml:space="preserve"
+       style="font-size:43.74040985px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:GillSans Condensed;-inkscape-font-specification:GillSans Condensed"
+       x="73.576561"
+       y="1009.0703"
+       id="text2829"><tspan
+         sodipodi:role="line"
+         id="tspan2831"
+         x="73.576561"
+         y="1009.0703">itco.com</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:28.77039146px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:GillSans Condensed;-inkscape-font-specification:GillSans Condensed"
+       x="1.2334012"
+       y="1035.8062"
+       id="text2829-1"><tspan
+         sodipodi:role="line"
+         id="tspan2831-7"
+         x="1.2334012"
+         y="1035.8062">Precious Metal Prices</tspan></text>
+  </g>
+</svg>
