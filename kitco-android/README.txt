@@ -7,6 +7,9 @@ them on your Android device. This software is released under GPLv2.
 
 CHANGELOG:
 ----------
+Version 0.2 (April 2010)
+-Fixed refresh bug and market status bug.
+
 Version 0.1 (April 2010)
 -Initial release
 
