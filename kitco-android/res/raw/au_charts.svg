@@ -15,8 +15,8 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.47 r22583"
-   sodipodi:docname="au_charts_icon.svg"
-   inkscape:export-filename="C:\Documents and Settings\droesler\My Documents\kitco_precious_metals\res\drawable\au_charts.png"
+   sodipodi:docname="au_charts.svg"
+   inkscape:export-filename="C:\Documents and Settings\droesler\My Documents\kitco-android\kitco-android\res\drawable\au_charts.png"
    inkscape:export-xdpi="60"
    inkscape:export-ydpi="60">
   <defs
@@ -344,9 +344,9 @@
      inkscape:document-units="px"
      inkscape:current-layer="g4341"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1181"
-     inkscape:window-x="1436"
+     inkscape:window-width="1440"
+     inkscape:window-height="853"
+     inkscape:window-x="-4"
      inkscape:window-y="-4"
      inkscape:window-maximized="1"
      showguides="true"
