@@ -87,7 +87,7 @@ public class PreciousMetalPrices extends Activity {
 	private Integer[] loaded = {0,0,0,0,0};
 	private Integer refresh = 0;
 	private Integer[] lockout = {0,0,0,0,0};
-	static final boolean DEBUG = true;
+	static final boolean DEBUG = false;
 	
     //Called when the activity is first created 
     @Override
