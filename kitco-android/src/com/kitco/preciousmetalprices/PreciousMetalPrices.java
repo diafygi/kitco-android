@@ -504,8 +504,8 @@ public class PreciousMetalPrices extends Activity {
     	//Parse webpage data for values
         //Find range of data
     	if(DEBUG) Log.v("kitco","finding location of table start and end on webpage");
-        Integer start = webpage.indexOf("<td align=\"center\" bgcolor=\"#000000\" colspan=\"7\">");
-        Integer end = webpage.indexOf("</table></td></tr></table><br><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" bgcolor=\"#E0E0E0\" width=\"540\">");
+        Integer start = webpage.indexOf("<td align=\"center\" bgcolor=\"#000000\" colspan=\"8\">");
+        Integer end = webpage.indexOf("</table></td></tr></table><br><table");
         String data = webpage.substring(start,end);
         Integer i = 0;
         Integer o = 0;
