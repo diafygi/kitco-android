@@ -7,6 +7,9 @@ them on your Android device. This software is released under GPLv2.
 
 CHANGELOG:
 ----------
+Version 0.2.2 (February 2011)
+-Handles page formatting errors without crashing.
+
 Version 0.2.1 (February 2011)
 -Fixed page formatting bug.
 

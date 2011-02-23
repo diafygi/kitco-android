@@ -504,89 +504,97 @@ public class PreciousMetalPrices extends Activity {
     	//Parse webpage data for values
         //Find range of data
     	if(DEBUG) Log.v("kitco","finding location of table start and end on webpage");
-        Integer start = webpage.indexOf("<td align=\"center\" bgcolor=\"#000000\" colspan=\"8\">");
-        Integer end = webpage.indexOf("</table></td></tr></table><br><table");
-        String data = webpage.substring(start,end);
-        Integer i = 0;
-        Integer o = 0;
+    	if(webpage.indexOf("<td align=\"center\" bgcolor=\"#000000\" colspan=\"8\">") > 0) {
+    		Integer start = webpage.indexOf("<td align=\"center\" bgcolor=\"#000000\" colspan=\"8\">");
+    		Integer end = webpage.indexOf("</table></td></tr></table><br><table");
+    		String data = webpage.substring(start,end);
+    		Integer i = 0;
+    		Integer o = 0;
 
-        //Get market status
-        if(DEBUG) Log.v("kitco","getting market status");
-        i = data.indexOf("MARKET IS", 0);
-        o = data.indexOf("</font>", i);
-        market_status = data.substring(i,o);
+    		//Get market status
+    		if(DEBUG) Log.v("kitco","getting market status");
+    		i = data.indexOf("MARKET IS", 0);
+    		o = data.indexOf("</font>", i);
+    		market_status = data.substring(i,o);
 
-        //Get market time
-        if(DEBUG) Log.v("kitco","getting market time");
-        i = data.indexOf("<BR>", o);
-        o = data.indexOf("</b>",i);
-        market_time=data.substring(i+5,o-1);
+    		//Get market time
+    		if(DEBUG) Log.v("kitco","getting market time");
+    		i = data.indexOf("<BR>", o);
+    		o = data.indexOf("</b>",i);
+    		market_time=data.substring(i+5,o-1);
 
-        for(int x=0; x<4; x++) {
-        	//Get metal name
-            i = data.indexOf("<p>&nbsp;",o);
-            i = data.indexOf(">",i+1);
-            i = data.indexOf(">",i+1);
-            o = data.indexOf("</a>",i+1);
-            data_table[x][0]=data.substring(i+1,o);
-            if(DEBUG) Log.v("kitco","getting metal name ("+data_table[x][0]+")");
+    		for(int x=0; x<4; x++) {
+    			//Get metal name
+    			i = data.indexOf("<p>&nbsp;",o);
+            	i = data.indexOf(">",i+1);
+            	i = data.indexOf(">",i+1);
+            	o = data.indexOf("</a>",i+1);
+            	data_table[x][0]=data.substring(i+1,o);
+            	if(DEBUG) Log.v("kitco","getting metal name ("+data_table[x][0]+")");
 
         	
-        	//Get time
-            i = data.indexOf("<td",o);
-            o = data.indexOf("</td>",i+1);
-            data_table[x][1]=data.substring(i+7,o);
-            i = data.indexOf("<td",o);
-            o = data.indexOf("</td>",i);
-            data_table[x][1]=data.substring(i+7,o) + " " + data_table[x][1];
-            if(DEBUG) Log.v("kitco","getting " + data_table[x][0] + " time ("+data_table[x][1]+")");
+            	//Get time
+            	i = data.indexOf("<td",o);
+            	o = data.indexOf("</td>",i+1);
+            	data_table[x][1]=data.substring(i+7,o);
+            	i = data.indexOf("<td",o);
+            	o = data.indexOf("</td>",i);
+            	data_table[x][1]=data.substring(i+7,o) + " " + data_table[x][1];
+            	if(DEBUG) Log.v("kitco","getting " + data_table[x][0] + " time ("+data_table[x][1]+")");
             
-            //Get bid
-            i = data.indexOf("<td",o);
-            o = data.indexOf("</td>",i);
-            data_table[x][2]=data.substring(i+7,o);
-            if(DEBUG) Log.v("kitco","getting " + data_table[x][0] + " bid ("+data_table[x][2]+")");
+            	//Get bid
+            	i = data.indexOf("<td",o);
+            	o = data.indexOf("</td>",i);
+            	data_table[x][2]=data.substring(i+7,o);
+            	if(DEBUG) Log.v("kitco","getting " + data_table[x][0] + " bid ("+data_table[x][2]+")");
             
-            //Get ask
-            i = data.indexOf("<td",o);
-            o = data.indexOf("</td>",i);
-            data_table[x][3]=data.substring(i+7,o);
-            if(DEBUG) Log.v("kitco","getting " + data_table[x][0] + " ask ("+data_table[x][3]+")");
+            	//Get ask
+            	i = data.indexOf("<td",o);
+            	o = data.indexOf("</td>",i);
+            	data_table[x][3]=data.substring(i+7,o);
+            	if(DEBUG) Log.v("kitco","getting " + data_table[x][0] + " ask ("+data_table[x][3]+")");
             
-            //Get change
-            i = data.indexOf("<td",o);
-            i = data.indexOf(">",i+1);
-            i = data.indexOf(">",i+1);
-            o = data.indexOf("</p>",i);
-            data_table[x][4]=data.substring(i+1,o);
-            if(DEBUG) Log.v("kitco","getting " + data_table[x][0] + " change ("+data_table[x][4]+")");
+            	//Get change
+            	i = data.indexOf("<td",o);
+            	i = data.indexOf(">",i+1);
+            	i = data.indexOf(">",i+1);
+            	o = data.indexOf("</p>",i);
+            	data_table[x][4]=data.substring(i+1,o);
+            	if(DEBUG) Log.v("kitco","getting " + data_table[x][0] + " change ("+data_table[x][4]+")");
             
-            //Get change percent
-            i = data.indexOf("<td",o);
-            i = data.indexOf(">",i+1);
-            i = data.indexOf(">",i+1);
-            o = data.indexOf("</p>",i);
-            data_table[x][5]=data.substring(i+1,o);
-            if(DEBUG) Log.v("kitco","getting " + data_table[x][0] + " change percent ("+data_table[x][5]+")");
+            	//Get change percent
+            	i = data.indexOf("<td",o);
+            	i = data.indexOf(">",i+1);
+            	i = data.indexOf(">",i+1);
+            	o = data.indexOf("</p>",i);
+            	data_table[x][5]=data.substring(i+1,o);
+            	if(DEBUG) Log.v("kitco","getting " + data_table[x][0] + " change percent ("+data_table[x][5]+")");
             
-            //Get low
-            i = data.indexOf("<td",o);
-            o = data.indexOf("</td>",i);
-            data_table[x][6]=data.substring(i+7,o);
-            if(DEBUG) Log.v("kitco","getting " + data_table[x][0] + " low ("+data_table[x][6]+")");
+            	//Get low
+            	i = data.indexOf("<td",o);
+            	o = data.indexOf("</td>",i);
+            	data_table[x][6]=data.substring(i+7,o);
+            	if(DEBUG) Log.v("kitco","getting " + data_table[x][0] + " low ("+data_table[x][6]+")");
             
-            //Get high
-            i = data.indexOf("<td",o);
-            o = data.indexOf("</td>",i);
-            data_table[x][7]=data.substring(i+7,o);
-            if(DEBUG) Log.v("kitco","getting " + data_table[x][0] + " high ("+data_table[x][7]+")");
-        }
+            	//Get high
+            	i = data.indexOf("<td",o);
+            	o = data.indexOf("</td>",i);
+            	data_table[x][7]=data.substring(i+7,o);
+            	if(DEBUG) Log.v("kitco","getting " + data_table[x][0] + " high ("+data_table[x][7]+")");
+    		}
 
-        //Set progress at 100%
-    	loaded[scr] = 100;
-    	handler.sendMessage(Message.obtain());
-    	
-        return;
+    		//Set progress at 100%
+    		loaded[scr] = 100;
+    		handler.sendMessage(Message.obtain());
+    	}
+    	else{
+    		//Note error
+    		data_table[0][0]="Error reading table, please email the developer.";
+    		loaded[scr] = 100;
+    		handler.sendMessage(Message.obtain());
+    	}
+
+       	return;
 	}
     
 	//Grabs chart data from web
